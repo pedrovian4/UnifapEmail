@@ -7,11 +7,11 @@ namespace App\Api;
 
 interface IApi
 {
-    public function fetchOne(string |array $data): array | object ;
+    public function fetchOne(string |array $data): array|object | null | bool ;
 
-    public function fetchMany(array $data): array | object ;
+    public function fetchMany(array $data): array|object | null | bool ;
 
-    public function put(array $data);
+    public function put(array $data): array|object | null | bool;
 }
 
 

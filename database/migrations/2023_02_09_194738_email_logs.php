@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('logs', function(Blueprint $table){
-            $table->boolean('active')->default(false);
+        Schema::table('logs', function (Blueprint $table){
+            $table->string('email');
         });
     }
 

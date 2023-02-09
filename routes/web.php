@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\EmailGenerationController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,8 +18,12 @@ use App\Http\Controllers\ApiController;
 
 Route::get('/', [PagesController::class, 'index']);
 Route::Post('/check', [ApiController::class, 'CheckUserSiggaa']);
-Route::get('/info', function(){
-    return response()->json([
-        'stuff'=>phpinfo()
-    ]);
-});
+
+Route::get('/termoAceite', [PagesController::class, 'termoAceite']);
+
+Route::post('/generation',[EmailGenerationController::class, 'create']);
+// Route::get('/info', function(){
+//     return response()->json([
+//         'stuff'=>phpinfo()
+//     ]);
+// });

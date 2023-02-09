@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('student_name');
             $table->string('tuition_number');
-            $table->string('sigga_user');
+            $table->string('sigaa_user');
             $table->integer('tuituion_status');
             $table->timestamps(); 
         });

@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Api\ApiSigaa;
-use Illuminate\Http\Request;
 
 use App\Api\IApi;
 use App\Http\Requests\UserSigaaRequest;
+use App\Models\Log;
+use Illuminate\Support\Facades\Redirect;
 
 class ApiController extends Controller
 {
@@ -19,12 +20,17 @@ class ApiController extends Controller
 
     }
 
-
-    public function CheckUserSiggaa(UserSigaaRequest $request)
+    public function checkUserSiggaa(UserSigaaRequest $request)
     {
-         $data = $this->api->fetchOne($request->except('_token'));
-
-         return $data;
-
+        $user = Log::where('tuition_number', $request->input('tuition_number'))->get()->first();
+        if($user || !$this->api->fetchOne(['parameter'=>'data'])){
+            $request->session()->flash('status', 'Usuário já possui email');
+            return redirect('/');
+        }
+        $request->session()->put('access', true);
+        $request->session()->put('tuition_number',$request->input('tuition_number'));
+        return redirect('/termoAceite');
     }
+
+
 }

@@ -3,9 +3,11 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Foundation\Validation\ValidatesRequests;
 
 class UserSigaaRequest extends FormRequest
 {
+
     /**
      * Determine if the user is authorized to make this request.
      *
