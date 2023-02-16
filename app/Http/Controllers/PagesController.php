@@ -14,9 +14,10 @@ class PagesController extends Controller
 
     public function termoAceite(Request $request)
     {
+        $termoAceiteLink = "https://drive.google.com/file/d/1qMVyGHqYS1g6BIriUuOcQd4JTPTFHtgb/preview";
         if($request->session()->get('access')){
             return view('termoAceite.termoAceite',[
-                "termoAceite"=> "https://drive.google.com/file/d/1qMVyGHqYS1g6BIriUuOcQd4JTPTFHtgb/preview",
+                "termoAceite"=> $termoAceiteLink
             ]);
         }
         return redirect('/');

@@ -16,7 +16,8 @@ class Log extends Model
         'student_name',
         'tuition_number',
         'sigaa_user',
-        'tuituion_status'
+        'tuituion_status',
+        'email'
     ];
 
 

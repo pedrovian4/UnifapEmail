@@ -7,7 +7,6 @@ use App\Api\ApiSigaa;
 use App\Api\IApi;
 use App\Http\Requests\UserSigaaRequest;
 use App\Models\Log;
-use Illuminate\Support\Facades\Redirect;
 
 class ApiController extends Controller
 {

@@ -2,8 +2,6 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\Log;
 
@@ -23,6 +21,7 @@ class ApiTest extends TestCase
         $sigaaEmailUser->tuition_number = '244455667';
         $sigaaEmailUser->sigaa_user = 'testUser';
         $sigaaEmailUser->tuituion_status = 94;
+        $sigaaEmailUser->email = 'test@test.com.br';
         $sigaaEmailUser->save();
 
         $response = $this->post('/check',[
@@ -31,12 +30,8 @@ class ApiTest extends TestCase
         ], [
             'Content-Type'=>'text/html; charset=UTF-8'
         ]);
-
         $sigaaUser = Log::where('tuition_number', '244455667');
         $sigaaUser->delete();
         $response->assertStatus(302);
-
-
-
     }
 }
